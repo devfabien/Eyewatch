@@ -1,9 +1,12 @@
 import React from "react";
 import { useEffect } from "react";
+import {useNavigation} from "@react-navigation/native";
 import {SafeAreaView} from "react-native-safe-area-context";
-import {View ,Text,Image, ScrollView,} from "react-native";
+import {View ,Text,Image, ScrollView, TouchableOpacity,} from "react-native";
 import axios from "axios";
 export const Cardb=()=>{
+    const Nav= useNavigation();
+
     const [lista,setlista] = React.useState([])
 
      useEffect(() => {
@@ -32,9 +35,11 @@ export const Cardb=()=>{
             {lista.map((item)=>{
                 return(
                     <View>
+                        <TouchableOpacity onPress={() => Nav.navigate("detail",item)}>
                     <Image source={{uri:`https://image.tmdb.org/t/p/w500/${item.poster_path}`}}
                     style={{width:160,height:130,paddingLeft:20,marginRight:10,borderRadius:8}} 
                     imageStyle={{borderRadius:2}} />
+                    </TouchableOpacity>
                         
                         <Text style={{color:"white",fontSize:14,width:110}}>
                             {item.title}

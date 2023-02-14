@@ -1,10 +1,13 @@
 import React from "react";
 import {SafeAreaView} from "react-native-safe-area-context";
-import {View ,Text, Pressable,Image,ImageBackground} from "react-native";
+import {View ,Text, Pressable,Image,ImageBackground, TouchableOpacity} from "react-native";
 import {SignupScreen} from "./index";
 import { AppNavigation } from "../navigation/appnavigation";
+import { LogoutUser } from "../features/AuthenticationSlice";
 import { AntDesign, Feather, MaterialIcons, Octicons } from "@expo/vector-icons";
+import { useDispatch } from "react-redux";
 export const ProfileScreen = ({navigation})=>{
+    const dispatch = useDispatch();
     return (
         <SafeAreaView>
             <View>
@@ -36,10 +39,12 @@ export const ProfileScreen = ({navigation})=>{
     <AntDesign name="exclamationcircleo" size={27} color="white"/>
     <Text style={{color:"white",fontSize:16,marginLeft:10}}>Help</Text>
 </View>
+<TouchableOpacity onPress={() => dispatch (LogoutUser())}>
 <View style={{flexDirection:"row",padding:11}}>
     <MaterialIcons name="logout" size={27} color="white"/>
     <Text style={{color:"white",fontSize:16,marginLeft:10}}>Signout</Text>
 </View>
+</TouchableOpacity>
 </View>
                 </ImageBackground>
                 

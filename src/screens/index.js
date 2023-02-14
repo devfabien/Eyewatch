@@ -11,7 +11,8 @@ export * from "./folder";
 export * from "./series";
 export * from "./profile";
 export * from "./search";
-export * from "./home";
+
+export * from "./detail";
 
 
 

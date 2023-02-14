@@ -1,11 +1,11 @@
 import React from "react";
 import { useEffect } from "react";
 import {SafeAreaView} from "react-native-safe-area-context";
-import {View ,Text,ImageBackground, ScrollView} from "react-native";
+import {View ,Text,ImageBackground, ScrollView, TouchableOpacity} from "react-native";
 import axios from "axios";
 import { Card } from "../components/Card";
 import { Cardb } from "../components/Cardb";
-export const ListScreen = ({key})=>{
+export const ListScreen = ({navigation})=>{
     const [list,setList] = React.useState([])
 
      useEffect(() => {
@@ -34,8 +34,8 @@ export const ListScreen = ({key})=>{
             <ScrollView horizontal>
             {list.map((item)=>{
                 return(
-                    
-                    <ImageBackground source={{uri:`https://image.tmdb.org/t/p/w500/${item.poster_path}`}}
+                    <TouchableOpacity onPress={() => navigation.navigate("detail", item)}>
+                    <ImageBackground source={{uri:`https://image.tmdb.org/t/p/w500/${item.poster_path}`,}}
                     style={{width:320,height:200,justifyContent:"flex-end",paddingLeft:20,paddingBottom:15,marginRight:15}} 
                     imageStyle={{borderRadius:20}} >
                         <Text style={{color:"white",fontSize:20}}>
@@ -48,6 +48,7 @@ export const ListScreen = ({key})=>{
                             {item.key}
                         </Text>
                     </ImageBackground>
+                    </TouchableOpacity>
                 
                 )
             })}

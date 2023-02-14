@@ -1,25 +1,32 @@
-import React from "react";
 
 import { Provider } from "react-redux";
 
 
-import { Store } from "./src/components/Reducers/store";
+
+import { Store } from "./store";
 import { LogBox } from "react-native";
-import { Counter } from "./src/components/Reducers/counter/Counter";
+
 LogBox.ignoreLogs(['Warning...']);
+
+LogBox.ignoreLogs(["Warning..."]);
 LogBox.ignoreAllLogs();
+
+import RootNavigation from "./src/navigation/rootnavigation";
+
 const App = () => {
   return (
-    
+
     <Provider store={Store}>
-    <Counter/>
+    
+      <RootNavigation />
     </Provider>
-    
-    
-    
-  
-   
+
+
+
+
+
 
     )}
+  
 
 export default App;
