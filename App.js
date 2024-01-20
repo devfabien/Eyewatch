@@ -1,32 +1,13 @@
+import React from 'react';
+import { View, Text } from 'react-native';
+import { Provider } from 'react-redux';
+import {RootNavigation} from './src/navigation/rootnavigation';
+import { Store } from './store';
 
-import { Provider } from "react-redux";
-
-
-
-import { Store } from "./store";
-import { LogBox } from "react-native";
-
-LogBox.ignoreLogs(['Warning...']);
-
-LogBox.ignoreLogs(["Warning..."]);
-LogBox.ignoreAllLogs();
-
-import RootNavigation from "./src/navigation/rootnavigation";
-
-const App = () => {
+export default function App() {
   return (
-
     <Provider store={Store}>
-    
-      <RootNavigation />
+    <RootNavigation/>
     </Provider>
-
-
-
-
-
-
-    )}
-  
-
-export default App;
+  );
+}

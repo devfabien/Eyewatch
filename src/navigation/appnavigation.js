@@ -5,6 +5,8 @@ import {
   LoginScreen,
   SignupScreen,
   MovieDetail,
+  InboxScreen,
+ 
 } from "../screens/index";
 import { Bottoms } from "./home";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -16,6 +18,7 @@ import {
   storeToken,
   login as storeLoginData,signUp as SignUpData
 } from "../features/AuthenticationSlice";
+import ImagePickerExample from "../screens/edit";
 
 
 
@@ -51,6 +54,8 @@ export const AppNavigation = () => {
         <>
           <Screen name="home" component={Bottoms} />
           <Screen name="detail" component={MovieDetail} />
+          <Screen name="edit" component={ImagePickerExample}/>
+          <Screen name="inbox" component={InboxScreen}/>
         </>
       ) : (
         <>

@@ -1,5 +1,6 @@
 import React from "react";
-import { ImageBackground, View ,Text, Pressable} from "react-native";
+import { StatusBar } from "react-native";
+import { ImageBackground, View ,Text, Pressable,Image} from "react-native";
 import {SafeAreaView} from "react-native-safe-area-context";
 import { Entypo } from "@expo/vector-icons";
 
@@ -7,17 +8,14 @@ const img= {uri:"https://imgs.search.brave.com/sSjjhbceRGTcVkXrfuyToNFFQ7eAIiXjB
 
 export const GetScreen = ({navigation})=>{
     return(
-        <SafeAreaView>
+        <SafeAreaView style={{backgroundColor:"transparent"}}>
+            
         <View style={{flexDirection:"column",backgroundColor:"black"}}>
+            
             <ImageBackground source={img} resizeMode="cover" fadeDuration={1000} style={{height:"100%"}}>
-            <View style={{flexDirection:"row",marginLeft:10,marginTop:20}}>
-        <View style={{backgroundColor:"black",padding:10,}}>
-        <Entypo name="eye" size={30} color="gold"/>
-</View>
-<View style={{backgroundColor:"gold",padding:12}}>
-    <Text style={{color:"black",fontWeight:"bold",fontSize:20}}>Watch</Text>
-</View>
-       </View>
+            <View style={{flexDirection:"row",padding:5}}>
+            <Image source={require("../assets/logo.png")} style={{width:120,height:40}}/>
+            </View>
               <View style={{marginTop:230}}>
               <Text style={{color:"white",fontSize:25,marginBottom:5,padding:4}}>Enjoy your favourite {'\n'} movie everywhere </Text>
               <Text style={{color:"white",padding:4}}>Browse through our collections and {"\n"}discover hundreds of movies and seires that{"\n"} you'll love! </Text>

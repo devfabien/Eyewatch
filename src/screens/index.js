@@ -11,8 +11,9 @@ export * from "./folder";
 export * from "./series";
 export * from "./profile";
 export * from "./search";
-
+export * from "./edit";
 export * from "./detail";
+export * from "./inbox";
 
 
 

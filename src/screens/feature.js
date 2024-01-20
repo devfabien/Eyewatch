@@ -23,7 +23,7 @@ export const FeatureScreen = ({image,title,date})=>{
         })
     }
     return (
-        <SafeAreaView>
+        <SafeAreaView style={{backgroundColor:"transparent"}}>
             <View style={{backgroundColor:"black",height:"100%",padding:15}}>
            
                 <ImageBackground source={{uri:`https://image.tmdb.org/t/p/w500/${image}`}}

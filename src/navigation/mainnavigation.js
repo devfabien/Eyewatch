@@ -1,6 +1,7 @@
 import React from "react";
-import { StyleSheet, Text, View, StatusBar, ScrollView } from "react-native";
+import { StyleSheet, Text, View, StatusBar, ScrollView, Image } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
+import { scale } from "react-native-size-matters";
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
 import { SafeAreaView } from "react-native-safe-area-context";
 import {
@@ -22,8 +23,8 @@ const Tab = createMaterialTopTabNavigator();
 
 export const MainNav = () => {
   return (
-    <View style={{ flex: 1 }}>
-      <SafeAreaView>
+    <View style={{ flex: scale(1) }}>
+      <SafeAreaView style={{backgroundColor:"transparent"}}>
         <View
           style={{
             flexDirection: "row",
@@ -34,28 +35,15 @@ export const MainNav = () => {
           <View
             style={{
               flexDirection: "row",
-              paddingLeft: 10,
-              marginTop: 2,
-              paddingTop: 5,
+              paddingLeft: scale(10),
+              marginTop: scale(2),
+              padding: scale(5),
             }}
           >
-            <View
-              style={{ backgroundColor: "black", padding: 12, borderRadius: 5 }}
-            >
-              <Entypo name="eye" size={30} color="gold" />
-            </View>
-            <View
-              style={{ backgroundColor: "gold", padding: 13, borderRadius: 5 }}
-            >
-              <Text
-                style={{ color: "black", fontWeight: "bold", fontSize: 20 }}
-              >
-                Watch
-              </Text>
-            </View>
+           <Image source={require("../assets/logo.png")}/>
           </View>
-          <View style={{ marginTop: 9, marginRight: 27 }}>
-            <Ionicons name="notifications-outline" size={27} color="white" />
+          <View style={{ marginTop: scale(9), marginRight: scale(27) }}>
+            <Ionicons name="notifications-outline" size={scale(27)} color="white" />
           </View>
         </View>
       </SafeAreaView>
@@ -70,15 +58,15 @@ export const MainNav = () => {
 
           tabBarContentContainerStyle: { backgroundColor: "black" },
           tabBarIndicatorStyle: {
-            width: 5,
-            padding: 2,
-            borderRadius: 3,
+            width: scale(5),
+            padding: scale(2),
+            borderRadius: scale(3),
             backgroundColor: "gold",
-            borderBottomWidth: 2,
-            padding: 2,
+            borderBottomWidth: scale(2),
+            padding: scale(2),
           },
           headerStyle: {
-            marginTop: 30,
+            marginTop: scale(30),
           },
         }}
       >

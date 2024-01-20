@@ -1,6 +1,7 @@
 import React from "react";
 import { useEffect } from "react";
 import {useNavigation} from "@react-navigation/native";
+import { scale } from "react-native-size-matters";
 import {SafeAreaView} from "react-native-safe-area-context";
 import {View ,Text,Image, ScrollView, TouchableOpacity,} from "react-native";
 import axios from "axios";
@@ -29,7 +30,7 @@ export const Cardb=()=>{
 
     return (
         <View>
-        <Text style={{fontWeight:"bold",color:"white",fontSize:16,padding:10}}> New on cinemas</Text>
+        <Text style={{fontWeight:"bold",color:"white",fontSize:scale(16),padding:scale(10)}}> New on cinemas</Text>
         <View style={{flexDirection:"row"}}>
             <ScrollView horizontal>
             {lista.map((item)=>{
@@ -37,15 +38,15 @@ export const Cardb=()=>{
                     <View>
                         <TouchableOpacity onPress={() => Nav.navigate("detail",item)}>
                     <Image source={{uri:`https://image.tmdb.org/t/p/w500/${item.poster_path}`}}
-                    style={{width:160,height:130,paddingLeft:20,marginRight:10,borderRadius:8}} 
-                    imageStyle={{borderRadius:2}} />
+                    style={{width:scale(160),height:scale(130),paddingLeft:scale(20),marginRight:scale(10),borderRadius:scale(8)}} 
+                    imageStyle={{borderRadius:scale(2)}} />
                     </TouchableOpacity>
                         
-                        <Text style={{color:"white",fontSize:14,width:110}}>
+                        <Text style={{color:"white",fontSize:scale(14),width:scale(110)}}>
                             {item.title}
                             {item.key}
                         </Text>
-                        <Text style={{color:"gold",fontSize:8}}>
+                        <Text style={{color:"gold",fontSize:scale(8)}}>
                             {item.release_date}
                             {item.key}
                         </Text>

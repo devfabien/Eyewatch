@@ -1,6 +1,7 @@
 import React from "react";
 import { useEffect } from "react";
 import {useNavigation} from "@react-navigation/native";
+import { scale } from "react-native-size-matters";
 import {SafeAreaView} from "react-native-safe-area-context";
 import {View ,Text,Image, ScrollView,TouchableOpacity} from "react-native";
 import axios from "axios";
@@ -28,18 +29,18 @@ export const Carde=({key})=>{
 
     return (
         <View>
-        <Text style={{fontWeight:"bold",color:"white",fontSize:22,padding:10}}> Made for you </Text>
+        <Text style={{fontWeight:"bold",color:"white",fontSize:scale(22),padding:scale(10)}}> Made for you </Text>
         <View style={{flexDirection:"row",justifyContent:"space-between"}}>
             <ScrollView >
             {lista.map((item)=>{
                 return(
-                    <View style={{flexDirection:"row",marginBottom:10}}>
+                    <View style={{flexDirection:"row",marginBottom:scale(10)}}>
                     <View>
 
                         <TouchableOpacity onPress = {() => Nav.navigate ("detail",item)}>
                         <Image source={{uri:`https://image.tmdb.org/t/p/w500/${item.poster_path}`}}
-                        style={{width:160,height:130,paddingLeft:20,marginRight:10,borderRadius:8}} 
-                        imageStyle={{borderRadius:2}} />
+                        style={{width:scale(160),height:scale(130),paddingLeft:scale(20),marginRight:scale(10),borderRadius:scale(8)}} 
+                        imageStyle={{borderRadius:scale(2)}} />
                         </TouchableOpacity>
                      
                     </View>
@@ -47,15 +48,15 @@ export const Carde=({key})=>{
 
 
 <View>
-                        <Text style={{color:"white",fontSize:16,width:170}}>
+                        <Text style={{color:"white",fontSize:scale(16),width:scale(170)}}>
                             {item.title}
                             {item.key}
                         </Text>
-                        <Text style={{color:"gold",fontSize:12}}>
+                        <Text style={{color:"gold",fontSize:scale(12)}}>
                             {item.release_date}
                             {item.key}
                         </Text>
-                        <Text style={{color:"grey",fontSize:9}}>
+                        <Text style={{color:"grey",fontSize:scale(9)}}>
                             {item.overview}
                         </Text>
                         </View>

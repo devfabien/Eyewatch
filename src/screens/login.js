@@ -1,15 +1,18 @@
 import React, { useState } from "react";
 import { Entypo, AntDesign, Feather, Fontisto } from "@expo/vector-icons";
 import { TextInput } from "react-native-paper";
-import { ImageBackground, Pressable, Text, TouchableOpacity, View } from "react-native";
+import { ImageBackground, Pressable, Text, TouchableOpacity, View ,ActivityIndicator,Image} from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { loginUser } from "../features/AuthenticationSlice";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 export const LoginScreen = ({ navigation }) => {
+
+  const {isLoading,error} = useSelector((state) => state.auth);
   const dispatch = useDispatch();
   const [userEmail, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [password, setPassword] = useState();
+  const [hidePassword, sethidePassword] = useState(password)
 
   const handleLogin = () => {
     const data = {
@@ -21,23 +24,14 @@ export const LoginScreen = ({ navigation }) => {
   };
 
   return (
-    <SafeAreaView>
+    <SafeAreaView style={{backgroundColor:"transparent"}}>
       <View style={{ padding: 15, backgroundColor: "#27272a", height: "100%" }}>
         <View
           style={{ flexDirection: "row", alignSelf: "center", marginTop: 25 }}
         >
-          <View
-            style={{ backgroundColor: "black", padding: 12, borderRadius: 5 }}
-          >
-            <Entypo name="eye" size={30} color="gold" />
-          </View>
-          <View
-            style={{ backgroundColor: "gold", padding: 13, borderRadius: 5 }}
-          >
-            <Text style={{ color: "black", fontWeight: "bold", fontSize: 20 }}>
-              Watch
-            </Text>
-          </View>
+     <View style={{flexDirection:"row",padding:5}}>
+            <Image source={require("../assets/logo.png")} style={{width:120,height:40}}/>
+            </View>
         </View>
         <View style={{ marginTop: 13 }}>
           <Text style={{ color: "white", alignSelf: "center" }}>
@@ -83,10 +77,11 @@ export const LoginScreen = ({ navigation }) => {
           >
             <TextInput
               textColor="white"
+              autoCorrect={false}
               activeUnderlineColor="gold"
               underlineColor="grey"
               label={"password"}
-              secureTextEntry={true}
+              secureTextEntry={hidePassword}
               onChangeText={(password) => setPassword(password)}
               style={{
                 color: "gold",
@@ -95,7 +90,7 @@ export const LoginScreen = ({ navigation }) => {
                 width: "96%",
               }}
             />
-            <Feather name="lock" size={20} color="gold" />
+            <Feather onPress={()=>sethidePassword(!hidePassword)} name={hidePassword ? "eye" : "eye-off"} size={20} color="gold" />
           </View>
           <View
             style={{
@@ -109,6 +104,14 @@ export const LoginScreen = ({ navigation }) => {
             </Pressable>
           </View>
         </View>
+        {isLoading == true ?(
+          <ActivityIndicator size={"small"} color="gold"/>
+        ):null}
+        {error !=="" ?(
+          <Text style={{color:"red",}}>
+            {error}
+          </Text>
+        ):null}
 <TouchableOpacity>
         <View style={{ backgroundColor: "gold", padding: 6, marginTop: 50 }}>
           <Pressable onPress={handleLogin}>
@@ -159,7 +162,7 @@ export const LoginScreen = ({ navigation }) => {
             flexDirection: "row",
             marginTop: 10,
             alignSelf: "center",
-            marginTop: 70,
+            marginTop: 50,
           }}
         >
           <Text style={{ color: "white" }}> Don't have an account? </Text>

@@ -10,7 +10,7 @@ export const Searchsmall = ({ image, title, date, description,key}) => {
     
   return (
     
-    <SafeAreaView style={{ paddingHorizontal: 8, flexDirection:'row' }}>
+    <SafeAreaView style={{ paddingHorizontal: 8, flexDirection:'row',backgroundColor:"transparent" }}>
         
       <Image
         source={{

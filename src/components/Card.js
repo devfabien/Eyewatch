@@ -2,6 +2,7 @@ import React from "react";
 import { useEffect } from "react";
 import {SafeAreaView} from "react-native-safe-area-context";
 import {useNavigation} from "@react-navigation/native";
+import {scale} from "react-native-size-matters";
 import {View ,Text,Image, ScrollView, TouchableOpacity,} from "react-native";
 import axios from "axios";
 export const Card=({navigation})=>{
@@ -28,7 +29,7 @@ export const Card=({navigation})=>{
 
     return (
         <View>
-        <Text style={{fontWeight:"bold",color:"white",fontSize:16,padding:10}}> Popular movies</Text>
+        <Text style={{fontWeight:"bold",color:"white",fontSize: scale(16),padding:scale(10)}}> Popular movies</Text>
         <View style={{flexDirection:"row"}}>
             <ScrollView horizontal>
             {lista.map((item)=>{
@@ -36,15 +37,15 @@ export const Card=({navigation})=>{
                     <View>
                         <TouchableOpacity onPress={() => Nav.navigate("detail",item)}>
                     <Image source={{uri:`https://image.tmdb.org/t/p/w500/${item.poster_path}`}}
-                    style={{width:140,height:130,paddingLeft:20,marginRight:15,borderRadius:8}} 
-                    imageStyle={{borderRadius:2}} />
+                    style={{width:scale(140),height:scale(130),paddingLeft:scale(20),marginRight:scale(15),borderRadius:scale(8)}} 
+                    imageStyle={{borderRadius:scale(2)}} />
                     </TouchableOpacity>
                         
-                        <Text  style={{color:"white",fontSize:13,width:120 }}>
+                        <Text  style={{color:"white",fontSize:scale(13),width:scale(120),}} numberOfLines={1}>
                             {item.title}
                             {item.key}
                         </Text>
-                        <Text style={{color:"gold",fontSize:8}}>
+                        <Text style={{color:"gold",fontSize:scale(8)}}>
                             {item.release_date}
                             {item.key}
                         </Text>

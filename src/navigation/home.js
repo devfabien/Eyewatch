@@ -2,6 +2,7 @@ import React from "react";
 
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import {  ProfileScreen, SearchScreen, FolderScreen } from "../screens/index";
+import { scale } from "react-native-size-matters";
 import { AntDesign, Feather } from "@expo/vector-icons";
 import { MainNav } from "./mainnavigation";
 
@@ -22,7 +23,7 @@ export const Bottoms = () => {
       <Screen
         options={{
           tabBarIcon: ({ size, color }) => {
-            return <Feather name="home" size={24} color="gold" />;
+            return <Feather name="home" size={scale(24)} color="gold" />;
           },
         }}
         name="MainNav"
@@ -31,7 +32,7 @@ export const Bottoms = () => {
       <Screen
         options={{
           tabBarIcon: ({ size, color }) => {
-            return <Feather name="search" size={24} color="gold" />;
+            return <Feather name="search" size={scale(24)} color="gold" />;
           },
         }}
         name="search"
@@ -40,7 +41,7 @@ export const Bottoms = () => {
       <Screen
         options={{
           tabBarIcon: ({ size, color }) => {
-            return <Feather name="folder" size={24} color="gold" />;
+            return <Feather name="folder" size={scale(24)} color="gold" />;
           },
         }}
         name="folder"
@@ -49,7 +50,7 @@ export const Bottoms = () => {
       <Screen
         options={{
           tabBarIcon: ({ color, size }) => {
-            return <AntDesign name="appstore-o" size={24} color="gold" />;
+            return <AntDesign name="appstore-o" size={scale(24)} color="gold" />;
           },
         }}
         name="profile"
