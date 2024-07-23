@@ -12,9 +12,13 @@
       "channel": "development"
     },
     "preview": {
+      "android": {
+        "buildType": "apk"
+      },
       "distribution": "internal",
       "ios": {
-        "resourceClass": "m1-medium"
+        "simulator": false,
+        "resourceClass": "m-medium"
       },
       "channel": "preview"
     },
