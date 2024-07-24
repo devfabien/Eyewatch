@@ -1,4 +1,4 @@
-name: build the application
+name: Update the application
 
 on:
   push:
@@ -26,5 +26,5 @@ jobs:
       - name: install dependencies
         run: npm install
 
-      - name: create the build
-        run: eas build --platform android --profile preview --non-interactive
+      - name: create update
+        run: eas update --auto --non-interactive
